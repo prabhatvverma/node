@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+class Calculator {
+    constructor(x = 0, y = 0) {
+        this.x = Number.parseFloat(x);
+        this.y = Number.parseFloat(y);
+    }
+
+    add() {
+        return this.x + this.y;
+    }
+
+    substruction() {
+        return this.x - this.y;
+    }
+
+    multiply() {
+        return this.x * this.y;
+    }
+
+    divide() {
+        if (this.x == 0) {
+            throw new Error("Devide by zero is undefined");
+        }
+        return this.x / this.y;
+    }
+}
+
+const args = process.argv.slice(2);
+const calcObj = new Calculator(args[0], args[1]);
+
+console.log("Calculation : ");
+console.log("+ : " +calcObj.add());
+console.log("- : " +calcObj.substruction());
+console.log("* : " +calcObj.multiply());
+console.log("/ : " +calcObj.divide());
