@@ -13,7 +13,7 @@ org_data = buff_data.toString();
 console.log(org_data);
 
 //we can directall get string data without getting buffer data
-const orignal_data = file_system.readFileSync("./files/new.txt", "utf-8")
+ const orignal_data = file_system.readFileSync("./files/new.txt", "utf-8")
 console.log(orignal_data);
 // file_system.rmdir("./files");
 
