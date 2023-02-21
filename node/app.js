@@ -37,10 +37,7 @@ for(let i = 0; i <= 10; i++)
 }
 
 
-let something = () => 
-{
-    return 'Doing Something';
-}
+let something = () => 'Doing Something';
 
 function whatToDo()
 {
