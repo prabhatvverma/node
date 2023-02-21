@@ -1,56 +1,48 @@
-// let promise = new Promise((resolve, reject) => {
-//     console.log("hello");
-//     resolve(35);
-// })
-
-// console.log("my name is khan");
-// setTimeout(() => {
-//     console.log("printing after 5 sec...");
-// }, 5000);
-// console.log("and i'm not a terrorist");
-// console.log(promise);
-
-
-
-function register(callback) {
-    setTimeout(() => {
-        console.log("Registre End");
-        callback();
-    }, 1000)
+function register() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("register end");
+            resolve();
+        }, 2000)
+    })
 }
-function sendEmail(callback) {
-    setTimeout(() => {
-        console.log("Email End");
-        callback();
-    }, 4000)
+function sendEmail() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("email end");
+            resolve();
+        }, 2000)
+    })
 }
-function login(callback) {
-    setTimeout(() => {
-        console.log("Login End");
-        callback();
+function login() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("login end");
+            resolve();
+        })
     }, 2000)
 }
-function getUserData(callback) {
-    setTimeout(() => {
-        console.log("Got User Data");
-        callback();
-    }, 5000)
+function getUserData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Got User Data");
+            resolve();
+        }, 4000)
+    })
 }
 function displayUserData() {
-    setTimeout(() => {
-        console.log("User Data Displayed");
-        
-    }, 7000)
+    return new Promise(function(resolve, reject){
+        setTimeout(function() {
+            console.log("User Data Displayed");
+            resolve();
+        },4000)
+    })
 }
 
-register(() => {
-    sendEmail(() => {
-        login(() => {
-            getUserData(() => {
-                displayUserData();
-            });
-        });
-    });
-});
+register()
+.then(sendEmail)
+.then(login)
+.then(getUserData)
+.then(displayUserData);
 
 console.log("other application work !");
